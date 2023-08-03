@@ -1,27 +1,42 @@
-# React + TypeScript + Vite
+# I-DID-THAT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+View
 
-## Expanding the ESLint configuration
+## Table of Contents
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+[Explain how to install and set up your project]
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Usage
+
+[Provide instructions on how to use your project]
+
+## Features
+
+[List the key features of your project]
+
+## Contributing
+
+[Specify how other developers can contribute to your project]
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+[Provide your contact information or a way for people to reach out to you]
+
+[Include any additional information you want to share about your project]

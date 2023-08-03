@@ -20,7 +20,7 @@ export async function getUserRepos(username: string) {
 
     return userRepos;
   } catch (error) {
-    console.error("Error getting user contributions:", error.message);
+    console.error("Error getting user contributions:", error);
   }
 }
 
@@ -59,7 +59,7 @@ export async function getTotalCommitCountForRepo(
 
     return totalCommits;
   } catch (error) {
-    console.error("Error getting data:", error.message);
+    console.error("Error getting data:", error);
   }
 }
 
@@ -86,6 +86,6 @@ export async function getUserCommitCountFromContributorStats(
       return 0;
     }
   } catch (error) {
-    console.error("Error getting data:", error.message);
+    console.error("Error getting data:", error);
   }
 }

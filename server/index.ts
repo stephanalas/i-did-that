@@ -3,7 +3,7 @@ dotenv.config();
 import express, { ErrorRequestHandler } from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import api from "./api";
+import api from "./api.ts";
 export const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

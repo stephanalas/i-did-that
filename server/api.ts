@@ -3,7 +3,7 @@ import {
   getTotalCommitCountForRepo,
   getUserCommitCountFromContributorStats,
   getUserRepos,
-} from "./utility";
+} from "./utility.ts";
 const router = express.Router();
 
 router.get("/:username", async (req, res, next) => {
@@ -81,14 +81,6 @@ router.get("/:username", async (req, res, next) => {
   } catch (error) {
     console.log("error=====================");
     console.log(error);
-    next(error);
-  }
-});
-
-router.get("/", async (req, res, next) => {
-  try {
-    res.send({ message: "Success", error: false });
-  } catch (error) {
     next(error);
   }
 });
