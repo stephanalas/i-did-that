@@ -19,9 +19,7 @@ if (!process.env.VITE) {
     res.sendFile(frontendFiles + "/index.html");
   });
 
-  app.listen(process.env.PORT, () =>
-    console.log("listening on " + process.env.PORT)
-  );
+  app.listen(process.env["PORT"]);
 }
 
 app.use(express.static(path.join(__dirname, "..", "dist", "assets")));
