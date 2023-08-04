@@ -15,7 +15,6 @@
     "@mantine/core": "^6.0.17",
     "@mantine/form": "^6.0.17",
     "@mantine/hooks": "^6.0.17",
-    "@netlify/functions": "^1.6.0",
     "@octokit/graphql": "^7.0.1",
     "@octokit/rest": "^20.0.1",
     "@tanstack/react-query": "^4.32.1",
@@ -24,7 +23,6 @@
     "octokit": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "serverless-http": "^3.2.0",
     "tabler-icons-react": "^1.56.0"
   },
   "devDependencies": {
