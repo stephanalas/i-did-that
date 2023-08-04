@@ -4,7 +4,7 @@ import ProfileForm from "./ProfileForm";
 import Notes from "./Notes";
 import "./index.css";
 import RepoList from "./RepoList";
-import { RepoData } from "./RepoCard";
+import { type RepoData } from "./RepoCard";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 
