@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
-import express, { ErrorRequestHandler } from "express";
+import express, { type ErrorRequestHandler } from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import api from "./api.ts";

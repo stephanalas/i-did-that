@@ -1,5 +1,5 @@
 import { SimpleGrid, Card, Text, Loader, Center } from "@mantine/core";
-import RepoCard, { RepoData } from "./RepoCard";
+import RepoCard, { type RepoData } from "./RepoCard";
 
 type RepoListProps = {
   repos: RepoData[];
