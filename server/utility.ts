@@ -11,7 +11,7 @@ export async function getUserRepos(username: string) {
 
     const userReposResponse = await octokit.rest.repos.listForUser({
       username,
-      type: "all",
+      type: "owner",
     });
     const userRepos = userReposResponse.data.map((repo: any) => [
       repo.full_name,
