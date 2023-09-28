@@ -18,10 +18,10 @@ router.get("/:username", async (req, res, next) => {
     } else {
       // [[ownerName, repoName]]
       const repoData = userRepos.map((contribution) => [
-        ...contribution[0].split("/"),
-        contribution[1],
+        ...contribution[0].split("/"), // ownerName
+        contribution[1], // repoName
       ]);
-      let formattedData: {
+      const formattedData: {
         owner: string;
         repo: string;
         username: string;
@@ -38,43 +38,39 @@ router.get("/:username", async (req, res, next) => {
           ownerName,
           repoName
         );
+        const userCommitCount = await getUserCommitCountFromContributorStats(
+          ownerName,
+          repoName,
+          username
+        );
+        // calculate commits to repo
+        let commitsToRepo = 0;
+
+        // userCommitCount == -1 all commits belong to user
+        // negative numbers are still truthy
+        if (userCommitCount && userCommitCount != -1)
+          commitsToRepo = userCommitCount;
+        else if (userCommitCount == -1) {
+          commitsToRepo = totalCommits;
+        } else {
+          commitsToRepo = 0;
+        }
+        // calculate percentage
+        const percentage = (100 * commitsToRepo) / totalCommits;
+        const commitPercentage = Math.round(percentage * 100) / 100;
+        // result
         if (totalCommits) {
           formattedData.push({
             owner: ownerName,
             repo: repoName,
             username,
-            commitsToRepo: 0,
+            commitsToRepo,
             totalCommits,
-            commitPercentage: 0,
+            commitPercentage,
             forked,
           });
         }
       }
-
-      formattedData = await Promise.all(
-        formattedData.map(async (item) => {
-          const userCommitCount = await getUserCommitCountFromContributorStats(
-            item.owner,
-            item.repo,
-            item.username
-          );
-          // userCommitCount == -1 all commits belong to user
-          // negative numbers are still truthy
-          if (userCommitCount && userCommitCount != -1)
-            item.commitsToRepo = userCommitCount;
-          else if (userCommitCount == -1) {
-            item.commitsToRepo = item.totalCommits;
-          } else {
-            item.commitsToRepo = 0;
-          }
-          return item;
-        })
-      );
-
-      formattedData.forEach((item) => {
-        const percentage = (100 * item.commitsToRepo) / item.totalCommits;
-        item.commitPercentage = Math.round(percentage * 100) / 100;
-      });
 
       res.send(formattedData);
     }
