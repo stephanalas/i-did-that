@@ -8,6 +8,8 @@ import { type RepoData } from "./RepoCard";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 
+// TODO: center loading spinner after subsequent searchs
+
 function App() {
   const [data, setData] = useState<RepoData[] | null>();
   const mutation = useMutation({
