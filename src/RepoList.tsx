@@ -10,28 +10,30 @@ export default function RepoList(props: RepoListProps) {
   const { repos } = props;
   return (
     <Card withBorder w="100%" h="fit">
-      <SimpleGrid
-        cols={repos.length ? 3 : 1}
-        breakpoints={[
-          { maxWidth: "62rem", cols: 3, spacing: "md" },
-          { maxWidth: "48rem", cols: 2, spacing: "sm" },
-          { maxWidth: "36rem", cols: 1, spacing: "sm" },
-        ]}
-      >
-        {props.isLoading ? (
-          <Center>
-            <Loader />
-          </Center>
-        ) : repos.length ? (
-          repos.map((repo) => (
-            <RepoCard {...repo} key={repo.owner + "/" + repo.repo} />
-          ))
-        ) : (
-          <Text ta="center" fz="xl">
-            No Repos to display
-          </Text>
-        )}
-      </SimpleGrid>
+      {props.isLoading ? (
+        <Center>
+          <Loader />
+        </Center>
+      ) : (
+        <SimpleGrid
+          cols={repos.length ? 3 : 1}
+          breakpoints={[
+            { maxWidth: "62rem", cols: 3, spacing: "md" },
+            { maxWidth: "48rem", cols: 2, spacing: "sm" },
+            { maxWidth: "36rem", cols: 1, spacing: "sm" },
+          ]}
+        >
+          {repos.length ? (
+            repos.map((repo) => (
+              <RepoCard {...repo} key={repo.owner + "/" + repo.repo} />
+            ))
+          ) : (
+            <Text ta="center" fz="xl">
+              No Repos to display
+            </Text>
+          )}
+        </SimpleGrid>
+      )}
     </Card>
   );
 }
